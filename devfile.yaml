@@ -1,0 +1,14 @@
+specVersion: 0.0.1
+name: develop_remote_plugins123
+projects:
+  - name: theia
+    source:
+      type: git
+      location: 'https://github.com/theia-ide/theia.git'
+tools:
+  - name: theia-editor
+    type: cheEditor
+    id: org.eclipse.che.editor.theia:1.0.0
+  - name: exec-plugin
+    type: chePlugin
+    id: che-machine-exec-plugin:0.0.1
