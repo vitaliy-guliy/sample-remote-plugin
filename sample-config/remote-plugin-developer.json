@@ -1,0 +1,83 @@
+{
+  "defaultEnv": "default",
+  "environments": {
+    "default": {
+      "machines": {
+        "ws/dev-plugin": {
+          "attributes": {
+            "memoryLimitBytes": "2684354560"
+          },
+          "servers": {
+            "PluginDev": {
+              "attributes": {},
+              "port": "10000",
+              "protocol": "ws"
+            }
+          },
+          "volumes": {
+            "projects": {
+              "path": "/projects"
+            }
+          },
+          "installers": [],
+          "env": {}
+        },
+        "ws/dev": {
+          "attributes": {
+            "memoryLimitBytes": "2684354560"
+          },
+          "servers": {
+            "TheiaDev": {
+              "attributes": {},
+              "port": "3030",
+              "protocol": "http"
+            }
+          },
+          "volumes": {
+            "projects": {
+              "path": "/projects"
+            }
+          },
+          "installers": [],
+          "env": {}
+        }
+      },
+      "recipe": {
+        "type": "kubernetes",
+        "content": "kind: List\nitems:\n - \n  apiVersion: v1\n  kind: Pod\n  metadata:\n   name: ws\n  spec:\n   containers:\n    - \n     image: 'eclipse/che-theia-dev:nightly'\n     name: dev\n     resources:\n      limits:\n       memory: 3072Mi\n    - \n     image: 'eclipse/che-theia-dev:nightly'\n     name: dev-plugin\n     resources:\n      limits:\n       memory: 2560Mi\n",
+        "contentType": "application/x-yaml"
+      }
+    }
+  },
+  "projects": [
+    {
+      "links": [],
+      "name": "theia",
+      "attributes": {},
+      "type": "blank",
+      "source": {
+        "location": "https://github.com/theia-ide/theia.git",
+        "type": "git",
+        "parameters": {}
+      },
+      "path": "/theia",
+      "description": "",
+      "mixins": [],
+      "problems": []
+    }
+  ],
+  "name": "remote-plugin-developer",
+  "attributes": {
+    "editor": "org.eclipse.che.editor.theia:1.0.0",
+    "plugins": "che-machine-exec-plugin:0.0.1"
+  },
+  "commands": [
+    {
+      "commandLine": "echo ${CHE_OSO_CLUSTER//api/console}",
+      "name": "Get OpenShift Console URL",
+      "attributes": {},
+      "type": "custom"
+    }
+  ],
+  "links": []
+}

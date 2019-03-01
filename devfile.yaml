@@ -1,10 +1,14 @@
 specVersion: 0.0.1
-name: develop_remote_plugins123
+name: develop-remote-plugins
 projects:
   - name: theia
     source:
       type: git
       location: 'https://github.com/theia-ide/theia.git'
+  - name: sample-remote-plugin
+    source:
+      type: git
+      location: 'https://github.com/vitaliy-guliy/sample-remote-plugin.git'
 tools:
   - name: theia-editor
     type: cheEditor
@@ -12,3 +16,6 @@ tools:
   - name: exec-plugin
     type: chePlugin
     id: che-machine-exec-plugin:0.0.1
+  - name: dev
+    type: kubernetes
+    local: dev.yaml
