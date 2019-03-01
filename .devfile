@@ -19,3 +19,15 @@ tools:
   - name: dev
     type: kubernetes
     local: dev.yaml
+commands:
+  - name: build-plugin
+    actions:
+      - type: exec
+        tool: dev
+        command: cd /projects/sample-remote-plugin && yarn
+        workdir: /projects/sample-remote-plugin
+  # - name: run
+  #   actions:
+  #     - type: exec
+  #       tool: theia-editor
+  #       command: export HOSTED_PLUGIN=/projects/hello-world-frontend-plugin && node ${HOME}/src-gen/backend/main.js /projects --hostname=0.0.0.0 --port=3130 && yarn start
