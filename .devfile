@@ -24,17 +24,13 @@ commands:
     actions:
       - type: exec
         tool: dev
-        command: |
-          cd /projects/sample-remote-plugin
-          yarn
+        command: cd /projects/sample-remote-plugin && yarn
         workdir: /projects/sample-remote-plugin
   - name: build-theia
     actions:
       - type: exec
         tool: dev
-        command: | 
-          cd /projects/theia
-          yarn
+        command: cd /projects/theia && yarn
         workdir: /projects/theia
   # - name: run
   #   actions:
