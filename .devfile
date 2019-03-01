@@ -25,16 +25,16 @@ commands:
       - type: exec
         tool: dev
         command: |
-          echo 'cd /projects/sample-remote-plugin &&
-          yarn'
+          cd /projects/sample-remote-plugin
+          yarn
         workdir: /projects/sample-remote-plugin
   - name: build-theia
     actions:
       - type: exec
         tool: dev
         command: | 
-          echo 'cd /projects/theia &&
-          yarn'
+          cd /projects/theia
+          yarn
         workdir: /projects/theia
   # - name: run
   #   actions:
