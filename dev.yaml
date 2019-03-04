@@ -15,7 +15,7 @@ items:
           memory: 2048Mi
       volumeMounts:
       - mountPath: /projects
-        name: projects    
+        name: projects
     - name: dev-plugin
       image: eclipse/che-theia-dev:nightly
       resources:
@@ -23,11 +23,11 @@ items:
           memory: 2048Mi
       volumeMounts:
       - mountPath: /projects
-        name: projects    
+        name: projects
     volumes:
     - name: projects
       persistentVolumeClaim:
-        claimName: projects    
+        claimName: projects
 - apiVersion: v1
   kind: PersistentVolumeClaim
   metadata:
